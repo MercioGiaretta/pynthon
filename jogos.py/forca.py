@@ -1,3 +1,5 @@
+import jogos
+
 def jogar():
     palavra_secreta = "maricatinga"
     letras_acertadas = ["_","_","_","_","_","_","_","_","_","_","_",]
@@ -22,6 +24,9 @@ def jogar():
     if "_" not in letras_acertadas:
         print("Parabéns você ganhou!!")
     else:
-        print(f"Você perdeu porpetão, a palavra era {palavra_secreta}")
+        print(f"Você perdeu janjolão, a palavra era {palavra_secreta}")
+
+    jogos.escolha_jogos()
+  
 if(__name__ == "__main__"):
     jogar()

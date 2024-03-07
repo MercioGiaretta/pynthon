@@ -1,4 +1,5 @@
 import random
+import jogos
 
 def jogar_adivinhacao():
     numero_secreto = random.randint(1,10)
@@ -25,5 +26,7 @@ def jogar_adivinhacao():
     else:
         print(f"Acabaram suas tentativas. O número correto era {numero_secreto}")
 
-    if(__name__ == "__main__"):
-        jogar()
+    jogos.escolhe_jogo()
+
+if(__name__ == "__main__"):
+        jogar_adivinhacao()

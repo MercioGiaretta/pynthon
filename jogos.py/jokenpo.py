@@ -1,9 +1,22 @@
 import random
 
+def ganhador(escolha_jogador,escolha_comp):
+    
+        if escolha_jogador == escolha_comp:
+            return "Empate!"
+        elif (
+            (escolha_jogador=="papel" and escolha_comp == "pedra") or
+            (escolha_jogador=="pedra" and escolha_comp == "tesoura") or
+            (escolha_jogador=="tesoura" and escolha_comp == "papel")
+        ):
+            return "Você Ganhou!"
+        else:
+            return "Você Perdeu!"
+
 def jogar_jokenpo():
-    vitorias = 0
-    derrotas = 0
     opcoes = ["pedra", "papel", "tesoura"]
+    vitoria = 0
+    derrota = 0
     print("Bem Vindo ao JoKenPo!!")
     print("Escolha: Pedra, Papel ou Tesoura.")
 
@@ -14,23 +27,17 @@ def jogar_jokenpo():
             continue
 
         escolha_comp = random.choice(opcoes)
-        print(f"Computador escolheu  {escolha_comp}")
+        print(f"Computador escolheu {escolha_comp}")
 
-        if escolha_jogador == escolha_comp:
-            print("Empate!")
+        resultado = ganhador(escolha_jogador, escolha_comp)
+        print(resultado)
 
-        elif(
-            (escolha_jogador=="papel" and escolha_comp == "pedra") or
-            (escolha_jogador=="pedra" and escolha_comp == "tesoura") or
-            (escolha_jogador=="tesoura" and escolha_comp == "papel")
-        ):
-            vitorias += 1
-            print("Você Ganhou!")
-        else:
-            derrotas += 1
-            print("Você Perdeu!")
-
-        print(f"Você tem {vitorias} vitórias, e {derrotas} derrotas.")
+        if resultado == "Você Venceu!":
+            vitoria += 1
+        elif resultado == "Você Perdeu!":
+            derrota += 1
+        print(f"Você tem {vitoria} vitórias, e {derrota} derrotas.")
+        
         jogar_novamente = input("Você gostaria de jogar novamente porpetão?").lower()
         if jogar_novamente != "sim":
             break

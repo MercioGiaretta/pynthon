@@ -17,7 +17,11 @@ def excluirItem(lista):
         print("Este item não está na lista.")
 
 def gravarLista(lista):
+    if len(lista) == 0:
+        print("A lista está vazia. Não há itens para gravar!")
+
     nome_arq = input("Digite o nome do Arquivo: ")
+    nome_arq += ".txt"
     with open(nome_arq,"w") as arquivo:
         for item in lista:
             arquivo.write(item + "\n")
@@ -26,22 +30,24 @@ def gravarLista(lista):
     lista.sort(reversed = True)
     print("Lista ordenada com sucesso")
 
-def listar_arquivos():
+def listar_arq(extensao=".py"):
     diretorio = os.getcwd()
     arquivos = os.listdir(diretorio)
-    print("Os arquivos desse diretorio são:")
-    for lista_arquivos in arquivos:
-        print(lista_arquivos) 
+    print(f"Arquivos .{extensao} no diretório atual:")
+    for lista_arquivo in arquivos:
+        if lista_arquivo.endswith(extensao)
+            print(lista_arquivo) 
 
 def carregar_arquivo(lista):
 
-    nome_arquivo = input("Digite o nome do arquivo para carregar a lista:")
+    nome_arq = input("Digite o nome do arquivo para carregar a lista:")
+    nome_arq += ".txt"
     try:
-        with open (nome_arquivo, "r") as arquivo:
+        with open (nome_arq, "r") as arquivo:
             lista.clear()
             for linha in arquivo:
                 lista.append(linha.strip())
-        print("Lista carregada com sucesso do arquivo" , nome_arquivo)
+        print("Lista carregada com sucesso do arquivo" , {nome_arq})
     except FileNotFoundError:
         print("O arquivo não foi encontrado.")
     except Exception as e:
